@@ -1,14 +1,20 @@
 package com.belatrixsf.findpatternapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * 
- * @author Alexander Chiran
- * paulo.alexander12@gmail.com
+ * @author Alexander Chiran paulo.alexander12@gmail.com
  * 
  *
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
+
+	@JsonProperty("code")
 	String code;
+	@JsonProperty("message")
 	String message;
 
 	public Message(String code, String message) {
@@ -32,7 +38,7 @@ public class Message {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -68,7 +74,5 @@ public class Message {
 	public String toString() {
 		return "Message [code=" + code + ", message=" + message + "]";
 	}
-	
-	
 
 }
