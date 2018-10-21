@@ -1,4 +1,4 @@
-package com.belatrixsf.findpatternweb.service;
+package com.belatrixsf.findpatternweb.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,9 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.belatrixsf.findpatternweb.model.RegexModel;
 import com.belatrixsf.findpatternweb.repository.RegexRepository;
+import com.belatrixsf.findpatternweb.service.IRegex;
 
+/**
+ * 
+ * @author Alexander Chiran
+ * paulo.alexander12@gmail.com
+ * 
+ *
+ */
 @Service
-public class RegexService implements IRegex {
+public class RegexImpl implements IRegex {
 
 	@Autowired
 	private RegexRepository regexRepository;

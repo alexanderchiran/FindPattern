@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.belatrixsf.findpatternweb.model.RegexModel;
 
+/**
+ * 
+ * @author Alexander Chiran
+ * paulo.alexander12@gmail.com
+ * 
+ *
+ */
 public interface IRegex {
 
 	List<RegexModel> findAll();

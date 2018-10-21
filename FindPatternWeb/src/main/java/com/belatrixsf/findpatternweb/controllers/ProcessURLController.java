@@ -19,15 +19,18 @@ import com.belatrixsf.findpatternweb.service.IConsumingAPI;
 import com.belatrixsf.findpatternweb.service.IRegex;
 
 /**
- * Product controller.
+ * 
+ * @author Alexander Chiran paulo.alexander12@gmail.com
+ * 
+ *
  */
 @Controller
 public class ProcessURLController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	//@Autowired
-	//private ProductService productService;
+	// @Autowired
+	// private ProductService productService;
 	@Autowired
 	private IRegex iRegex;
 	@Autowired
@@ -46,7 +49,12 @@ public class ProcessURLController {
 	 */
 	@RequestMapping(value = "/regexModels", method = RequestMethod.GET)
 	public String list(Model model) {
-		model.addAttribute("listRegexModel", iRegex.findAll());
+		try {
+			model.addAttribute("listRegexModel", iRegex.findAll());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
 		return "regexModels";
 	}
 
@@ -76,7 +84,7 @@ public class ProcessURLController {
 	public String initprocess(@ModelAttribute("regexModel") RegexModel regexModel, Model model) {
 
 		try {
-			Integer i= new Integer(regexModel.getId());
+			Integer i = new Integer(regexModel.getId());
 			Message message = iConsumingAPI.callFindPattern(i);
 			if (message != null) {
 				model.addAttribute("message", message.getMessage());
@@ -97,19 +105,28 @@ public class ProcessURLController {
 	 */
 	@RequestMapping("regexModel/{id}")
 	public String showProduct(@PathVariable Integer id, Model model) {
-		model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		try {
+			model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 		return "regexModelsshow";
 	}
 
 	/**
-	 * Edit regexModel 
+	 * Edit regexModel
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("regexModel/edit/{id}")
 	public String edit(@PathVariable Integer id, Model model) {
-		model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		try {
+			model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 		return "regexModelform";
 	}
 
@@ -121,8 +138,12 @@ public class ProcessURLController {
 	 */
 	@RequestMapping("regexModel/new")
 	public String newProduct(Model model) {
-		RegexModel regexModel= new RegexModel();
-		model.addAttribute("regexModel", regexModel);
+		try {
+			RegexModel regexModel = new RegexModel();
+			model.addAttribute("regexModel", regexModel);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 		return "regexModelform";
 	}
 
@@ -134,7 +155,11 @@ public class ProcessURLController {
 	 */
 	@RequestMapping(value = "regexModel", method = RequestMethod.POST)
 	public String saveProduct(RegexModel regexModel) {
-		iRegex.saveRegexModel(regexModel);		
+		try {
+			iRegex.saveRegexModel(regexModel);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 		return "redirect:/regexModel/" + regexModel.getId();
 	}
 
@@ -146,8 +171,11 @@ public class ProcessURLController {
 	 */
 	@RequestMapping("regexModel/delete/{id}")
 	public String delete(@PathVariable Integer id) {
-		iRegex.deleteRegexModel(id);
-		
+		try {
+			iRegex.deleteRegexModel(id);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 		return "redirect:/regexModels";
 	}
 

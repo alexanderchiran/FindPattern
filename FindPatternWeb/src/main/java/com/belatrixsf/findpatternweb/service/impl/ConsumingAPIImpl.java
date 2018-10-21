@@ -1,4 +1,4 @@
-package com.belatrixsf.findpatternweb.service;
+package com.belatrixsf.findpatternweb.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +12,17 @@ import org.springframework.web.client.RestTemplate;
 
 import com.belatrixsf.findpatternweb.helpers.Utility;
 import com.belatrixsf.findpatternweb.model.Message;
+import com.belatrixsf.findpatternweb.service.IConsumingAPI;
 
+/**
+ * 
+ * @author Alexander Chiran
+ * paulo.alexander12@gmail.com
+ * 
+ *
+ */
 @Service
-public class ConsumingAPI implements IConsumingAPI {
+public class ConsumingAPIImpl implements IConsumingAPI {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
