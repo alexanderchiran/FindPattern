@@ -11,7 +11,9 @@ create an API REST
 in Application properties 
 
 spring.data.mongodb.uri= XXX
+
 spring.data.mongodb.database = YYYY
+
 logging.file = path\log.log
 
 
