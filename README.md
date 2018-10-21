@@ -16,5 +16,11 @@ spring.data.mongodb.database = YYYY
 
 logging.file = path\log.log
 
+In Class FileUtility
+
+String path = path 
+
+File file = new File("C:/files/url.txt");
+
 
 
