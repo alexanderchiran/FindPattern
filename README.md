@@ -6,3 +6,13 @@ Configuration of threads in Spring Boot
 Connection with Mongo 
 
 create an API REST
+
+# Configure 
+in Application properties 
+
+spring.data.mongodb.uri= XXX
+spring.data.mongodb.database = YYYY
+logging.file = path\log.log
+
+
+
