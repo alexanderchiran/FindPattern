@@ -14,22 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.belatrixsf.findpatternweb.model.Message;
-import com.belatrixsf.findpatternweb.model.Product;
 import com.belatrixsf.findpatternweb.model.RegexModel;
 import com.belatrixsf.findpatternweb.service.IConsumingAPI;
 import com.belatrixsf.findpatternweb.service.IRegex;
-import com.belatrixsf.findpatternweb.service.ProductService;
 
 /**
  * Product controller.
  */
 @Controller
-public class ProductController {
+public class ProcessURLController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private ProductService productService;
+	//@Autowired
+	//private ProductService productService;
 	@Autowired
 	private IRegex iRegex;
 	@Autowired
@@ -46,10 +44,10 @@ public class ProductController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	@RequestMapping(value = "/regexModels", method = RequestMethod.GET)
 	public String list(Model model) {
-		model.addAttribute("products", productService.listAllProducts());
-		return "products";
+		model.addAttribute("listRegexModel", iRegex.findAll());
+		return "regexModels";
 	}
 
 	/**
@@ -78,7 +76,8 @@ public class ProductController {
 	public String initprocess(@ModelAttribute("regexModel") RegexModel regexModel, Model model) {
 
 		try {
-			Message message = iConsumingAPI.callFindPattern(regexModel.getId());
+			Integer i= new Integer(regexModel.getId());
+			Message message = iConsumingAPI.callFindPattern(i);
 			if (message != null) {
 				model.addAttribute("message", message.getMessage());
 			}
@@ -96,53 +95,60 @@ public class ProductController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("product/{id}")
+	@RequestMapping("regexModel/{id}")
 	public String showProduct(@PathVariable Integer id, Model model) {
-		model.addAttribute("product", productService.getProductById(id));
-		return "productshow";
-	}
-
-	// Afficher le formulaire de modification du Product
-	@RequestMapping("product/edit/{id}")
-	public String edit(@PathVariable Integer id, Model model) {
-		model.addAttribute("product", productService.getProductById(id));
-		return "productform";
+		model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		return "regexModelsshow";
 	}
 
 	/**
-	 * New product.
+	 * Edit regexModel 
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("regexModel/edit/{id}")
+	public String edit(@PathVariable Integer id, Model model) {
+		model.addAttribute("regexModel", iRegex.getRegexModelById(id));
+		return "regexModelform";
+	}
+
+	/**
+	 * New regexModel.
 	 *
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("product/new")
+	@RequestMapping("regexModel/new")
 	public String newProduct(Model model) {
-		model.addAttribute("product", new Product());
-		return "productform";
+		RegexModel regexModel= new RegexModel();
+		model.addAttribute("regexModel", regexModel);
+		return "regexModelform";
 	}
 
 	/**
-	 * Save product to database.
+	 * Save regexModel to Mongo.
 	 *
-	 * @param product
+	 * @param regexModel
 	 * @return
 	 */
-	@RequestMapping(value = "product", method = RequestMethod.POST)
-	public String saveProduct(Product product) {
-		productService.saveProduct(product);
-		return "redirect:/product/" + product.getId();
+	@RequestMapping(value = "regexModel", method = RequestMethod.POST)
+	public String saveProduct(RegexModel regexModel) {
+		iRegex.saveRegexModel(regexModel);		
+		return "redirect:/regexModel/" + regexModel.getId();
 	}
 
 	/**
-	 * Delete product by its id.
+	 * Delete regexModel by its id.
 	 *
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("product/delete/{id}")
+	@RequestMapping("regexModel/delete/{id}")
 	public String delete(@PathVariable Integer id) {
-		productService.deleteProduct(id);
-		return "redirect:/products";
+		iRegex.deleteRegexModel(id);
+		
+		return "redirect:/regexModels";
 	}
 
 }

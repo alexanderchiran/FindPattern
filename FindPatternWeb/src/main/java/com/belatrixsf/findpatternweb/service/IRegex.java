@@ -8,4 +8,10 @@ public interface IRegex {
 
 	List<RegexModel> findAll();
 
+	RegexModel getRegexModelById(Integer id);
+
+	void saveRegexModel(RegexModel regexModel);
+
+	void deleteRegexModel(Integer id);
+
 }

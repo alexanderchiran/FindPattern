@@ -10,13 +10,13 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-    <h2>Seleccione el patrón a buscar</h2>
+    <h2>Seleccione para iniciar el proceso</h2>
     <div>
         <form class="form-horizontal" th:object="${regexModel}"   th:action="@{/initprocess}" method="get">
         
         	<div class="col-lg-3">
 				<select class="form-control"  th:field="*{id}" id="testOrder" name="testOrder">
-					<option value="">Select Test Order</option>
+					<option value="">Select Option</option>
 					<option th:each="regexModel : ${listRegexModel}" th:value="${regexModel.id}"
 						th:text="${regexModel.description}"></option>
 				</select>

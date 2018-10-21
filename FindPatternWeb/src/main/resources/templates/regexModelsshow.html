@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Spring Boot Exemple</title>
+    <title>Find Patterns</title>
 
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
@@ -10,24 +10,24 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-    <h2>Product Details</h2>
+    <h2>Regex Details</h2>
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Product Id:</label>
+                    <label class="col-sm-2 control-label">Regex Id:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.id}">Product Id</p></div>
+                        <p class="form-control-static" th:text="${regexModel.id}">Regex Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Name:</label>
+                    <label class="col-sm-2 control-label">Description:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.name}">name</p>
+                        <p class="form-control-static" th:text="${regexModel.description}">description</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Price:</label>
+                    <label class="col-sm-2 control-label">Value:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.price}">Price</p>
+                        <p class="form-control-static" th:text="${regexModel.value}">Value</p>
                     </div>
                 </div>
             </form>

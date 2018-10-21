@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * 
  *
  */
-@Document
+@Document(collection = "regexModel")
 public class  RegexModel {
 	
 	@Id
