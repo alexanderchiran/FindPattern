@@ -49,7 +49,6 @@ public class ProductController {
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("products", productService.listAllProducts());
-		System.out.println("Returning rpoducts:");
 		return "products";
 	}
 
@@ -77,12 +76,16 @@ public class ProductController {
 
 	@RequestMapping(value = "/initprocess", method = RequestMethod.GET)
 	public String initprocess(@ModelAttribute("regexModel") RegexModel regexModel, Model model) {
-		System.out.println("Objeto seleccionado: " + regexModel.getId());
-		Message message= iConsumingAPI.callFindPattern(regexModel.getId());
-		if(message!=null) {
-			logger.info(message.toString());
+
+		try {
+			Message message = iConsumingAPI.callFindPattern(regexModel.getId());
+			if (message != null) {
+				model.addAttribute("message", message.getMessage());
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
 		}
-		
+
 		return "index";
 	}
 
