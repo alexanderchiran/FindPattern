@@ -10,8 +10,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * 
- * @author Alexander Chiran paulo.alexander12@gmail.com
- * 
+ * @author Alexander Chiran 
+ * paulo.alexander12@gmail.com * 
  *
  */
 @SpringBootApplication
