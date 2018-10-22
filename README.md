@@ -16,7 +16,7 @@ spring.data.mongodb.database = YYYY
 
 logging.file = path\log.log
 
-In Class FileUtility
+In Class Utility
 
 String path = path 
 
