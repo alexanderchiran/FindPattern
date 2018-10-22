@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author Alexander Chiran
  * paulo.alexander12@gmail.com
  * 
- *
  */
 @Document(collection = "regexModel")
 public class  RegexModel {

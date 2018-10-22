@@ -19,7 +19,6 @@ import com.belatrixsf.findpatternweb.model.RegexModel;
  * @author Alexander Chiran
  * paulo.alexander12@gmail.com
  * 
- *
  */
 @Repository
 public interface RegexRepository extends MongoRepository<RegexModel,Integer> {

@@ -5,7 +5,6 @@ package com.belatrixsf.findpatternweb.helpers;
  * @author Alexander Chiran
  * paulo.alexander12@gmail.com
  * 
- *
  */
 public class Utility {
 

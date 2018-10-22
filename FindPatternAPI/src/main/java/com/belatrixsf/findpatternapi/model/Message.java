@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Alexander Chiran paulo.alexander12@gmail.com
  * 
  *
+ *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {

@@ -20,7 +20,6 @@ import com.belatrixsf.findpatternapi.service.ICrawlingURL;
  * @author Alexander Chiran
  * paulo.alexander12@gmail.com
  * 
- *
  */
 @RestController
 @RequestMapping("/process")

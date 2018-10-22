@@ -6,7 +6,6 @@ package com.belatrixsf.findpatternapi.helpers;
  * paulo.alexander12@gmail.com
  * 
  * 
- *
  */
 public class Utility {
 	

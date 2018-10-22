@@ -19,7 +19,6 @@ import com.belatrixsf.findpatternapi.service.IProcessURL;
  * 
  * @author Alexander Chiran paulo.alexander12@gmail.com
  * 
- *
  */
 @Service
 public class CrawlingURLImpl implements ICrawlingURL {

@@ -22,7 +22,6 @@ import com.belatrixsf.findpatternweb.service.IRegex;
  * 
  * @author Alexander Chiran paulo.alexander12@gmail.com
  * 
- *
  */
 @Controller
 public class ProcessURLController {
