@@ -13,9 +13,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Message {
 
 	@JsonProperty("code")
-	String code;
+	private String code;
 	@JsonProperty("message")
-	String message;
+	private String message;
 
 	public Message(String code, String message) {
 		super();

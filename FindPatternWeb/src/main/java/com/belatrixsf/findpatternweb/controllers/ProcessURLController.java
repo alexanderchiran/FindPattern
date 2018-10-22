@@ -29,8 +29,6 @@ public class ProcessURLController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	// @Autowired
-	// private ProductService productService;
 	@Autowired
 	private IRegex iRegex;
 	@Autowired
@@ -42,7 +40,7 @@ public class ProcessURLController {
 	}
 
 	/**
-	 * List all products.
+	 * List all regex models.
 	 *
 	 * @param model
 	 * @return
@@ -59,7 +57,7 @@ public class ProcessURLController {
 	}
 
 	/**
-	 * 
+	 * init process, loading list of RegexModel
 	 * @param name
 	 * @param model
 	 * @return
@@ -80,6 +78,12 @@ public class ProcessURLController {
 		return "process";
 	}
 
+	/**
+	 * call Api Rest
+	 * @param regexModel
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/initprocess", method = RequestMethod.GET)
 	public String initprocess(@ModelAttribute("regexModel") RegexModel regexModel, Model model) {
 
@@ -97,7 +101,7 @@ public class ProcessURLController {
 	}
 
 	/**
-	 * View a specific product by its id.
+	 * View a specific Regex Model by its id.
 	 *
 	 * @param id
 	 * @param model

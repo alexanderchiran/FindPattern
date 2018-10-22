@@ -24,8 +24,9 @@ import org.slf4j.LoggerFactory;
  */
 public class FileUtility {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/**
-	 * 
+	 * create file 
 	 * @param data
 	 * @param name
 	 */
@@ -33,7 +34,7 @@ public class FileUtility {
 		OutputStream os = null;
 		try {
 			if (data != null && name != null) {
-				String path = "C:/files/out/" + name + ".txt";
+				String path = Utility.FILE_PATH + name + ".txt";
 				File file = new File(path);
 				if (!file.exists()) {
 					file.createNewFile();
@@ -57,7 +58,7 @@ public class FileUtility {
 	}
 	
 	/**
-	 * 
+	 * return a pattern name file
 	 * @return
 	 */
 	public String nameFile() {
@@ -80,7 +81,7 @@ public class FileUtility {
 	public List<String> readFile() {
 
 		List<String> listURL = new ArrayList<String>();
-		File file = new File("C:/files/url.txt");
+		File file = new File(Utility.FILE_PATH_URL);
 		BufferedReader reader = null;
 
 		try {

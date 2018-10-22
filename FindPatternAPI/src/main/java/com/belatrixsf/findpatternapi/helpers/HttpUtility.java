@@ -22,7 +22,7 @@ public class HttpUtility {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
-	 * 
+	 * get content url
 	 * @param url
 	 * @return
 	 */

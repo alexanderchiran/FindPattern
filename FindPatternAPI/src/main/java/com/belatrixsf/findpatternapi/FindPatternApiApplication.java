@@ -23,6 +23,10 @@ public class FindPatternApiApplication {
 		SpringApplication.run(FindPatternApiApplication.class, args);
 	}
 
+	/**
+	 * Configuration the threads
+	 * @return
+	 */
 	@Bean
 	public Executor asyncExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

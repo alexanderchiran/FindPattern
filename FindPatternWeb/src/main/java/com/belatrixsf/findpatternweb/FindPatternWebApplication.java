@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 
- * @author Alexander Chiran
- * paulo.alexander12@gmail.com
+ * @author Alexander Chiran paulo.alexander12@gmail.com
  * 
  *
  */

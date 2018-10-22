@@ -22,7 +22,7 @@ public class Transformation {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
-	 * 
+	 * change protocol
 	 * @param listURL
 	 * @return
 	 */
@@ -41,7 +41,7 @@ public class Transformation {
 	}
 	
 	/**
-	 * 
+	 * change protocol
 	 * @param url
 	 * @return
 	 */
