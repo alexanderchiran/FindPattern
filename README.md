@@ -1,3 +1,9 @@
+Paulo Alexander Chirán Portillo
+Java
+Spring 
+API REST
+Mongo Db
+
 # FindPattern
 This project does crawling to web pages with Spring Boot. 
 
